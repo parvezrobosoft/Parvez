@@ -3,26 +3,27 @@ import java.util.Arrays;
 public class Student implements Comparable<Student>{
 
 
-    String name;
-    String studentId;
-    String studentBranch;
-    int attendance;
-    int marks;
+    private String name;
+    private String studentId;
+    private String studentBranch;
+    private int attendance;
+    private int marks;
     Assignment assignment;
     String electiveSubject;
     String[] subjects;
-    boolean hallTicket =false;
+    private boolean hallTicket =false;
 
 
 
-    Student(String name, Branch branch,String subject)
+    Student(String name,College college, Branch branch,String subject)
     {
         this.name=name;
         studentId=University.generateStudentId();
-        this.studentBranch= branch.name;
-        branch.studentList.add(this);
+        this.studentBranch= branch.getName();
         electiveSubject=subject;
         subjects= new String[]{Arrays.toString(branch.mandatorySubjects),subject};
+        college.getBranchList().get(college.getBranchList().indexOf(branch)).getStudentList().add(this);
+
     }
 
     public void submitAssignment()
@@ -42,8 +43,24 @@ public class Student implements Comparable<Student>{
         this.marks+=marks;
     }
 
+    public void setHallTicket(boolean hallTicket) {
+        this.hallTicket = hallTicket;
+    }
+
+    public boolean isHallTicket() {
+        return hallTicket;
+    }
+
     public int getMarks() {
         return marks;
+    }
+
+    public int getAttendance() {
+        return attendance;
+    }
+
+    public String getStudentId() {
+        return studentId;
     }
 
     public String getName() {

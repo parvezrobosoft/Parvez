@@ -4,13 +4,15 @@ import java.util.List;
 
 public class Branch {
 
-    String name;
+    private String name;
     String[] mandatorySubjects={"Chemistry","Physics","Maths"};
-    List<Student> studentList = new ArrayList<>();
+    private List<Student> studentList = new ArrayList<>();
+
+
     Branch(String name,College college)
     {
         this.name=name;
-        college.branchList.add(this);
+        college.getBranchList().add(this);
 
     }
 
@@ -19,10 +21,10 @@ public class Branch {
         for (Student student:studentList)
         {
             System.out.println(
-                    "Student ID : "+student.studentId+'\n'+
-                    "Name : "+student.name+'\n'+
-                    "Marks : "+student.marks+'\n'+
-                            "Attendance : "+student.attendance+'\n'
+                    "Student ID : "+student.getStudentId()+'\n'+
+                    "Name : "+student.getName()+'\n'+
+                    "Marks : "+student.getMarks()+'\n'+
+                            "Attendance : "+student.getAttendance()+'\n'
 
 
             );
@@ -32,14 +34,14 @@ public class Branch {
     {
         for (Student student:studentList)
         {
-            if (student.hallTicket)
+            if (student.isHallTicket())
             {
-                System.out.print(student.name);
+                System.out.print(student.getName());
                 System.out.println(" : Issued");
             }
             else
             {
-                System.out.print(student.name);
+                System.out.print(student.getName());
                 System.out.println(" : Not Issued");
             }
         }
@@ -48,6 +50,14 @@ public class Branch {
     public void getAllStudentList()
     {
         System.out.println(studentList);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Student> getStudentList() {
+        return studentList;
     }
 
     @Override

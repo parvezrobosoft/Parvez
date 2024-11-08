@@ -16,12 +16,12 @@ public class StudentManagement
         Branch mech = new Branch("MECHANICAL ENGINEERING",sahyadri);
 
 
-        vtu.getCollegeList();
-        sahyadri.getBranchList();
+        vtu.collegeList();
+        sahyadri.branchList();
 
-        Student student1 =new Student("Rose",ec,"Data structure");
-        Student student2 =new Student("Lily",ec,"Digital System");
-        Student student3=new Student("vinay",ec,"Network Theory");
+        Student student1 =new Student("Rose",sahyadri,ec,"Data structure");
+        Student student2 =new Student("Lily",sahyadri,ec,"Digital System");
+        Student student3=new Student("vinay",sahyadri,ec,"Network Theory");
 
 
         TeachingFaculty teacher1 =new TeachingFaculty("Adarsh",sahyadri);
@@ -31,7 +31,7 @@ public class StudentManagement
         NonTeachingFaculty helper=new NonTeachingFaculty("Nitya",sahyadri);
         NonTeachingFaculty office=new NonTeachingFaculty("Satya",sahyadri);
 
-        sahyadri.getFacultyList();
+        sahyadri.facultyList();
 
         teacher1.allocateAssignment(student1,"Digital");
         teacher1.allocateAssignment(student2,"Digital");

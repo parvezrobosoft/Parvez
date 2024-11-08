@@ -3,14 +3,14 @@ import java.util.List;
 
 public class College {
 
-    String name;
-    List<Branch> branchList=new ArrayList<>();
-    List <Faculty>facultyList=new ArrayList<>() ;
+    private String name;
+    private List<Branch> branchList=new ArrayList<>();
+    private List <Faculty>facultyList=new ArrayList<>() ;
     static int facultyId=100;
 
     public College(String name,University university) {
         this.name = name;
-        university.collegeList.add(this);
+        university.getCollegeList().add(this);
     }
 
     @Override
@@ -31,7 +31,15 @@ public class College {
         branch.getStudentDetails();
     }
 
-    public void getBranchList()
+    public List<Branch> getBranchList() {
+        return branchList;
+    }
+
+    public List<Faculty> getFacultyList() {
+        return facultyList;
+    }
+
+    public void branchList()
     {
         System.out.println("Branch List : ");
         for (Branch branch:branchList) {
@@ -40,7 +48,8 @@ public class College {
         System.out.println();
     }
 
-    public void getFacultyList()
+
+    public void facultyList()
     {
         System.out.println("Faculty List of "+this.name +":");
         for (Faculty faculty:facultyList)

@@ -1,17 +1,20 @@
 public class Faculty {
 
-        String facultyId;
-        String name;
-
-        @Override
-        public String toString() {
-                return
-                         facultyId +" : "+ name ;
-        }
+       protected String facultyId;
+        protected String name;
 
         Faculty()
         {
             this.facultyId=College.generateFacultyId();
         }
 
+        @Override
+        public String toString() {
+                return
+                        facultyId +" : "+ name ;
+        }
+
+        public String getName() {
+                return name;
+        }
 }

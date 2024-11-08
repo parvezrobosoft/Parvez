@@ -1,10 +1,10 @@
 public class UniversityNonTeachingStaff {
-    String name;
-    String facultyId;
+    private String name;
+    private String facultyId;
     UniversityNonTeachingStaff(String name,University university)
     {
         this.name=name;
-        university.nonTeachingStaffList.add(this);
+        university.getNonTeachingStaffList().add(this);
         facultyId= university.generateStaffId();
     }
 

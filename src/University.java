@@ -3,10 +3,10 @@ import java.util.List;
 
 public class University {
 
-    String name;
+    private String name;
     static int staffId=200;
-    List<UniversityNonTeachingStaff> nonTeachingStaffList=new ArrayList<>();
-    List <College> collegeList =new ArrayList<>();
+    private List<UniversityNonTeachingStaff> nonTeachingStaffList=new ArrayList<>();
+    private List <College> collegeList =new ArrayList<>();
      static int studentId=100;
 
     public static String generateStudentId()
@@ -20,16 +20,24 @@ public class University {
         return "UF"+staffId;
     }
 
+    public List<UniversityNonTeachingStaff> getNonTeachingStaffList() {
+        return nonTeachingStaffList;
+    }
 
     public University(String name) {
         this.name = name;
     }
 
+
     public String getName() {
         return name;
     }
 
-    public void getCollegeList()
+    public List<College> getCollegeList() {
+        return collegeList;
+    }
+
+    public void collegeList()
     {
         System.out.println("College List:");
         collegeList.forEach(System.out::println);
@@ -39,12 +47,12 @@ public class University {
     {
         System.out.println("Hall Ticket Issued : ");
         for(College college:collegeList)
-            for (Branch branch: college.branchList){
-                for (Student student: branch.studentList)
+            for (Branch branch: college.getBranchList()){
+                for (Student student: branch.getStudentList())
                 {
-                    if(student.attendance>=75)
+                    if(student.getAttendance()>=75)
                     {
-                        student.hallTicket =true;
+                        student.setHallTicket(true);
                     }
                 }
                 branch.getHallTicketInfo();
