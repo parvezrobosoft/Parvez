@@ -69,10 +69,12 @@ public class Branch {
     public void getTopScorers()
     {
         Collections.sort(studentList);
-        System.out.println("Top scorers are :\n"+
-                studentList.get(0).getName()+":"+studentList.get(0).getMarks()+'\n'+
-                studentList.get(1).getName()+":"+studentList.get(1).getMarks()+'\n'+
-                studentList.get(2).getName()+":"+studentList.get(2).getMarks()+'\n'
-        );
+
+        System.out.println("Top scorers are :");
+        for (int i=0;i<3&i<studentList.size();i++)
+        {
+            studentList.get(i).studentMarks();
+        }
+        System.out.println();
     }
 }
